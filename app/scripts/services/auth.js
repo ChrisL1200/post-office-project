@@ -55,17 +55,9 @@ angular.module('postOfficeProjectApp')
        * @param  {Function} callback - optional
        * @return {Promise}            
        */
-      createUser: function(user, callback) {
-        var cb = callback || angular.noop;
-
-        return User.save(user,
-          function(user) {
-            $rootScope.currentUser = user;
-            return cb(user);
-          },
-          function(err) {
-            return cb(err);
-          }).$promise;
+      createUser: function(user, file) {
+        file.formData = [user];
+        file.upload();
       },
 
       /**
