@@ -52,7 +52,16 @@
           {{ errors.password }}
         </p>
       </div>
-
+      <div class="row form-group">
+        <div class="col-md-12">
+          <div>
+            <input ng-file-select type="file"/>
+            <div ng-repeat="item in [uploader.queue[uploader.queue.length - 1]]">
+              <div ng-thumb="{ file: item.file, width: 40, height: 40 }"></div>
+            </div>
+          </div>
+        </div>
+      </div>
       <button class="btn btn-lg btn-primary" type="submit">Sign up</button>
     </form>
   </div>
