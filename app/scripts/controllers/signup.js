@@ -16,6 +16,7 @@ angular.module('postOfficeProjectApp')
     uploader.bind('success', function(event, xhr, item, response) {
       $rootScope.currentUser = response;
       $location.path('/');
+      $scope.$apply(); 
     });
 
     $scope.register = function(form) {
