@@ -26,6 +26,8 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
+    <div ng-include="'partials/navbar.html'"></div>
+
     <div class="container" ng-view=""></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -64,6 +66,7 @@
         <script src="scripts/controllers/login.js"></script>
         <script src="scripts/controllers/signup.js"></script>
         <script src="scripts/controllers/settings.js"></script>
+        <script src="scripts/controllers/profile.js"></script>
         <script src="scripts/services/auth.js"></script>
         <script src="scripts/services/session.js"></script>
         <script src="scripts/services/user.js"></script>

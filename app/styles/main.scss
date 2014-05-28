@@ -75,7 +75,8 @@ body {
     }
     /* Space out the masthead */
     .header {
-        margin-bottom: 30px;
+        margin-bottom: 10px;
+        height:50px;
     }
     /* Remove the bottom border on the jumbotron for visual effect */
     .jumbotron {
@@ -125,4 +126,19 @@ margin-right: 15px !important;
 .dropdown-menu {
 padding: 0px;
 overflow: hidden;
+}
+
+.pic
+{
+     margin-top:50px; 
+     width:120px;
+     margin-left:50px;
+     margin-bottom:-60px;
+}
+
+.name
+{
+    position:absolute;
+    padding-left:200px;
+    font-size:30px;
 }

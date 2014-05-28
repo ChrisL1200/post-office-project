@@ -1,0 +1,20 @@
+<div class="row well">
+	<div class="col-md-2">
+	    <ul class="nav nav-pills nav-stacked well">
+          <li  class="active"><a href="#"><i class="fa fa-envelope"></i> Profile</a></li>
+          <li><a href="#"><i class="fa fa-user"></i> Edit</a></li>
+          <li><a href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+        </ul>
+    </div>
+	<div class="col-md-10">
+		<div class="panel">
+			<img class="pic img-circle" ng-if="currentUser.avatarId" ng-src="/api/avatar/{{currentUser.avatarId}}" alt="...">
+			<div class="name"><small>{{currentUser.name.first}} {{currentUser.name.last}}</small></div>
+		</div>
+		<br><br><br>
+		<!-- <div class="panel"> -->
+			<label for="profile-company-name">Company Name: </label>
+			<span id="profile-company-name">{{currentUser.company.name}}</span>
+		<!-- </div> -->
+	</div>
+</div>

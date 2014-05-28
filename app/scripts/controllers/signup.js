@@ -22,32 +22,18 @@ angular.module('postOfficeProjectApp')
     $scope.register = function(form) {
       $scope.submitted = true;
 
-      // if(form.$valid) {
-        // $scope.uploader.queue[$scope.uploader.queue.length - 1].formData = [{
-        //   name: $scope.user.name,
-        //   email: $scope.user.email,
-        //   password: $scope.user.password
-        // }];
-        // $scope.uploader.queue[$scope.uploader.queue.length - 1].upload();
-        // .then( function() {
-        //   // Account created, redirect to home
-        //   $location.path('/');
-        // })
-        // .catch( function(err) {
-        //   err = err.data;
-        //   $scope.errors = {};
-
-        //   // Update validity of form fields that match the mongoose errors
-        //   angular.forEach(err.errors, function(error, field) {
-        //     form[field].$setValidity('mongoose', false);
-        //     $scope.errors[field] = error.message;
-        //   });
-        // });
-
       if(form.$valid) {
         Auth.createUser({
-          name: $scope.user.name,
+          name: JSON.stringify({
+            first: $scope.user.name.first,
+            last: $scope.user.name.last
+          }),
+          company: JSON.stringify({
+            name: $scope.user.company.name,
+            address: $scope.user.company.address
+          }),
           email: $scope.user.email,
+          mlsNumber: $scope.user.mlsNumber,
           password: $scope.user.password
         }, $scope.uploader.queue[$scope.uploader.queue.length - 1]);
       }

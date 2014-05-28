@@ -15,24 +15,21 @@
                                 <ul class="nav navbar-nav navbar-right">
     								<li ng-hide="currentUser" ng-class="{active: isActive('/login')}"><a href="/login">Login</a></li>
     								<li ng-hide="currentUser" ng-class="{active: isActive('/signup')}"><a href="/signup">Sign up</a></li>
-                                    <li class="dropdown" ng-show="currentUser"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Account
+                                    <li class="dropdown" ng-show="currentUser"><a class="dropdown-toggle" data-toggle="dropdown">Welcome, {{currentUser.name.first}}
                                         <b class="caret"></b></a>
                                         <ul class="dropdown-menu">
                                             <li>
                                                 <div class="navbar-content">
                                                     <div class="row">
-                                                        <div class="col-md-5">
+                                                        <div class="col-md-4">
                                                             <img ng-if="currentUser.avatarId" ng-src="/api/avatar/{{currentUser.avatarId}}"/>
-                                                            <p class="text-center small">
-                                                                <a href="#">Change Photo</a></p>
                                                         </div>
-                                                        <div class="col-md-7">
-                                                            <span>{{currentUser.name}}</span>
+                                                        <div class="col-md-8">
+                                                            <span>{{currentUser.name.first}} {{currentUser.name.last}}</span>
                                                             <p class="text-muted small">
                                                                 {{currentUser.email}}</p>
                                                             <div class="divider">
                                                             </div>
-                                                            <a href="/profile" class="btn btn-primary btn-sm active">View Profile</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -40,7 +37,7 @@
                                                     <div class="navbar-footer-content">
                                                         <div class="row">
                                                             <div class="col-md-6">
-                                                                <a href="/profile/edit" class="btn btn-default btn-sm">Edit Profile</a>
+                                                                <a href="/profile" class="btn btn-default btn-sm">View Profile</a>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <a ng-click="logout()" class="btn btn-default btn-sm pull-right">Sign Out</a>

@@ -11,7 +11,8 @@ angular.module('postOfficeProjectApp', [
     $routeProvider
       .when('/', {
         templateUrl: 'partials/main',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        authenticate: true
       })
       .when('/login', {
         templateUrl: 'partials/login',
@@ -24,6 +25,11 @@ angular.module('postOfficeProjectApp', [
       .when('/settings', {
         templateUrl: 'partials/settings',
         controller: 'SettingsCtrl',
+        authenticate: true
+      })
+      .when('/profile', {
+        templateUrl: 'partials/profile',
+        controller: 'ProfileCtrl',
         authenticate: true
       })
       .otherwise({

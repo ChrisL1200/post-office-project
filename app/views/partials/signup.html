@@ -1,23 +1,32 @@
-<div ng-include="'partials/navbar.html'"></div>
-
 <div class="row">
   <div class="col-sm-12">
     <h1>Sign up</h1>
   </div>
   <div class="col-sm-12">
     <form class="form" name="form" ng-submit="register(form)" novalidate>
-
-      <div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted,
+      <div class="row">
+      <div class="form-group col-md-6" ng-class="{ 'has-success': form.name.$valid && submitted,
                                           'has-error': form.name.$invalid && submitted }">
-        <label>Name</label>
+        <label>First Name</label>
 
-        <input type="text" name="name" class="form-control" ng-model="user.name"
+        <input type="text" name="name" class="form-control" ng-model="user.name.first"
                required/>
         <p class="help-block" ng-show="form.name.$error.required && submitted">
-          A name is required
+          A first name is required
+        </p>
+      </div>
+
+      <div class="form-group col-md-6" ng-class="{ 'has-success': form.name.$valid && submitted,
+                                          'has-error': form.name.$invalid && submitted }">
+        <label>Last Name</label>
+
+        <input type="text" name="name" class="form-control" ng-model="user.name.last"
+               required/>
+        <p class="help-block" ng-show="form.name.$error.required && submitted">
+          A last name is required
         </p>
       </div>   
-
+    </div>
       <div class="form-group" ng-class="{ 'has-success': form.email.$valid && submitted,
                                           'has-error': form.email.$invalid && submitted }">
         <label>Email</label>
@@ -52,12 +61,47 @@
           {{ errors.password }}
         </p>
       </div>
+      <div class="row">
+      <div class="form-group col-md-6" ng-class="{ 'has-success': form.name.$valid && submitted,
+                                          'has-error': form.name.$invalid && submitted }">
+        <label>MLS Number</label>
+
+        <input type="text" name="name" class="form-control" ng-model="user.mlsNumber"
+               required/>
+        <p class="help-block" ng-show="form.mlsNumber.$error.required && submitted">
+          A MLS number is required
+        </p>
+      </div>
+      <div class="form-group col-md-6" ng-class="{ 'has-success': form.name.$valid && submitted,
+                                          'has-error': form.name.$invalid && submitted }">
+        <label>Company Name</label>
+
+        <input type="text" name="name" class="form-control" ng-model="user.company.name"
+               required/>
+        <p class="help-block" ng-show="form.name.$error.required && submitted">
+          A last name is required
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-12" ng-class="{ 'has-success': form.name.$valid && submitted,
+                                          'has-error': form.name.$invalid && submitted }">
+        <label>Company Address</label>
+
+        <input type="text" name="name" class="form-control" ng-model="user.company.address"
+               required/>
+        <p class="help-block" ng-show="form.mlsNumber.$error.required && submitted">
+          A company address is required
+        </p>
+      </div>
+    </div>
+
       <div class="row form-group">
         <div class="col-md-12">
           <div>
             <input ng-file-select type="file"/>
             <div ng-repeat="item in [uploader.queue[uploader.queue.length - 1]]">
-              <div ng-thumb="{ file: item.file, width: 40, height: 40 }"></div>
+              <div ng-thumb="{ file: item.file, width: 20, height: 20 }"></div>
             </div>
           </div>
         </div>
