@@ -22,11 +22,6 @@ angular.module('postOfficeProjectApp', [
         templateUrl: 'partials/signup',
         controller: 'SignupCtrl'
       })
-      .when('/settings', {
-        templateUrl: 'partials/settings',
-        controller: 'SettingsCtrl',
-        authenticate: true
-      })
       .when('/profile', {
         templateUrl: 'partials/profile',
         controller: 'ProfileCtrl',
