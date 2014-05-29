@@ -22,7 +22,7 @@
                                                 <div class="navbar-content">
                                                     <div class="row">
                                                         <div class="col-md-4">
-                                                            <img ng-if="currentUser.avatarId" ng-src="/api/avatar/{{currentUser.avatarId}}"/>
+                                                        	<img class="img-circle" ng-style="{width:'100px', marginBottom: '10px'}" ng-if="currentUser.avatarId" ng-src="/api/avatar/{{currentUser.avatarId}}" alt="...">
                                                         </div>
                                                         <div class="col-md-8">
                                                             <span>{{currentUser.name.first}} {{currentUser.name.last}}</span>

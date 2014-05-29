@@ -10,8 +10,8 @@ angular.module('postOfficeProjectApp', [
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'partials/main',
-        controller: 'MainCtrl',
+        templateUrl: 'partials/home',
+        controller: 'HomeCtrl',
         authenticate: true
       })
       .when('/login', {
