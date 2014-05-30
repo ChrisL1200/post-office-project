@@ -22,14 +22,15 @@
                                                 <div class="navbar-content">
                                                     <div class="row">
                                                         <div class="col-md-4">
-                                                        	<img class="img-circle" ng-style="{width:'100px', marginBottom: '10px'}" ng-if="currentUser.avatarId" ng-src="/api/avatar/{{currentUser.avatarId}}" alt="...">
+                                                        	<img ng-style="{width:'100px', marginBottom: '10px', height: '100px'}" ng-if="currentUser.avatarId" ng-src="/api/avatar/{{currentUser.avatarId}}" alt="...">
                                                         </div>
                                                         <div class="col-md-8">
+                                                            <h5>{{currentUser.company.name}}</h5>
                                                             <span>{{currentUser.name.first}} {{currentUser.name.last}}</span>
-                                                            <p class="text-muted small">
-                                                                {{currentUser.email}}</p>
                                                             <div class="divider">
                                                             </div>
+                                                            <p class="text-muted small">
+                                                                Email: {{currentUser.email}}</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -37,7 +38,7 @@
                                                     <div class="navbar-footer-content">
                                                         <div class="row">
                                                             <div class="col-md-6">
-                                                                <a href="/profile" class="btn btn-default btn-sm">View Profile</a>
+                                                                <a href="/profile" class="btn btn-default btn-sm">Profile</a>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <a ng-click="logout()" class="btn btn-default btn-sm pull-right">Sign Out</a>
