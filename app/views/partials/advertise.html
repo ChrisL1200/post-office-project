@@ -1,0 +1,21 @@
+
+
+
+  <div style="height: 305px" class="row">
+  	<div class="col-md-8 col-md-offset-2">
+    <carousel>
+      <slide ng-repeat="template in config.templates" active="template.active">
+      	<!-- Template -->
+        <img ng-src="{{template.src}}" style="margin:auto; height:500px; width: 1000px;">
+
+      	<!-- Property Info -->
+        <span ng-style="template.address">{{property.address}} {{property.price}}</span>
+        <img ng-src="{{property.pic}}" ng-style="template.image" />
+
+        <!-- Agent Info -->
+        <span ng-style="template.agentName">{{currentUser.name.first}} {{currentUser.name.last}}</span>
+        <img ng-src="/api/avatar/{{currentUser.avatarId}}" ng-style="template.agentPic" />
+      </slide>	
+    </carousel>
+	</div>
+  </div>

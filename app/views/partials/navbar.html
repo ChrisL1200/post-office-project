@@ -12,6 +12,10 @@
                                 <a class="navbar-brand" href="/">Project name</a>
                             </div>
                             <div class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav">
+                                    <li ng-class="isActive('/listings') ? 'active' : ''"><a ng-click="setLocation('/listings')">Listings</a></li>
+                                    <li ng-class="isActive('/farm') ? 'active' : ''"><a ng-click="setLocation('/farm')">Farm</a></li>
+                                </ul>
                                 <ul class="nav navbar-nav navbar-right">
     								<li ng-hide="currentUser" ng-class="{active: isActive('/login')}"><a href="/login">Login</a></li>
     								<li ng-hide="currentUser" ng-class="{active: isActive('/signup')}"><a href="/signup">Sign up</a></li>
@@ -22,7 +26,7 @@
                                                 <div class="navbar-content">
                                                     <div class="row">
                                                         <div class="col-md-4">
-                                                        	<img ng-style="{width:'100px', marginBottom: '10px', height: '100px'}" ng-if="currentUser.avatarId" ng-src="/api/avatar/{{currentUser.avatarId}}" alt="...">
+                                                        	<img ng-style="{width:'80px', marginBottom: '10px', height: '80px'}" ng-if="currentUser.avatarId" ng-src="/api/avatar/{{currentUser.avatarId}}" alt="...">
                                                         </div>
                                                         <div class="col-md-8">
                                                             <h5>{{currentUser.company.name}}</h5>

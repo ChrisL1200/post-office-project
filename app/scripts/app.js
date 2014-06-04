@@ -5,14 +5,14 @@ angular.module('postOfficeProjectApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'angularFileUpload'
+  'angularFileUpload',
+  'ui.bootstrap'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'partials/home',
-        controller: 'HomeCtrl',
-        authenticate: true
+        controller: 'HomeCtrl'
       })
       .when('/login', {
         templateUrl: 'partials/login',
@@ -25,6 +25,21 @@ angular.module('postOfficeProjectApp', [
       .when('/profile', {
         templateUrl: 'partials/profile',
         controller: 'ProfileCtrl',
+        authenticate: true
+      })
+      .when('/listings', {
+        templateUrl: 'partials/listings',
+        controller: 'ListingsCtrl',
+        authenticate: true
+      })
+      .when('/farm', {
+        templateUrl: 'partials/farm',
+        controller: 'FarmCtrl',
+        authenticate: true
+      })
+      .when('/advertise/:id', {
+        templateUrl: 'partials/advertise',
+        controller: 'AdvertiseCtrl',
         authenticate: true
       })
       .otherwise({

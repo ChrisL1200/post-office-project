@@ -1,0 +1,60 @@
+  <div id="property-listings">
+        <div class="row">
+            
+            <div class="col-md-2">
+                <ul class="nav nav-pills nav-stacked">
+                    <li ng-class="listingsView === 'my' ? 'active' : ''">
+                        <a ng-click="listingsView = 'my'">
+                        <span class="badge pull-right">42</span>
+                        My Listings
+                        </a>
+                    </li>
+                    <li ng-class="listingsView === 'recent' ? 'active' : ''">
+                        <a ng-click="listingsView = 'recent'">
+                        <span class="badge pull-right">12</span>
+                        Recently Sold
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-10">
+                <div class="row well" style="margin: 0">
+                    <div class="col-sm-6"> 
+                        <!-- Begin Listing: 609 W GRAVERS LN-->
+                        <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing" ng-repeat="listing in listings">
+                            <div class="media">
+                                <a class="pull-left" href="#" target="_parent">
+                                <img alt="image" class="img-responsive" ng-src="{{listing.pic}}"></a>
+
+                                <div class="clearfix visible-sm"></div>
+
+                                <div class="media-body fnt-smaller">
+                                    <a href="#" target="_parent"></a>
+
+                                    <h4 class="media-heading">
+                                      <a href="#" target="_parent">{{listing.price}} <small class="pull-right">{{listing.address}}</small></a></h4>
+
+                                    <ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
+                                        <li>{{listing.squareFeet}} SqFt</li>
+
+                                        <li style="list-style: none">|</li>
+
+                                        <li>{{listing.beds}} Beds</li>
+
+                                        <li style="list-style: none">|</li>
+
+                                        <li>{{listing.baths}} Baths</li>
+                                    </ul>
+
+                                    <p class="hidden-xs">{{listing.summary}}</p><span class="fnt-smaller fnt-lighter fnt-arial">Courtesy of {{currentUser.name.first}} {{currentUser.name.last}}</span>
+
+                                    <button class="pull-right btn btn-defaul" ng-click="setLocation('/advertise/' + listing.id)">Advertise</button>
+                                </div>
+                            </div>
+                        </div><!-- End Listing-->
+                    </div><!-- End Col -->
+                </div><!-- End row -->
+            </div>
+        </div><!-- End container -->
+    </div>
