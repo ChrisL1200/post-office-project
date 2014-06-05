@@ -116,7 +116,7 @@ body {
     line-height: 0;
 }
 .navbar-nav.navbar-right:last-child {
-margin-right: 15px !important;
+margin-right: 0 !important;
 }
 .navbar-footer 
 {
@@ -145,7 +145,7 @@ overflow: hidden;
 
 /**** LAYOUT ****/
 .list-inline>li {
-    padding: 0 10px 0 0;
+    padding: 0 4px 0 0;
 }
 .container-pad {
     padding: 0 15px;
