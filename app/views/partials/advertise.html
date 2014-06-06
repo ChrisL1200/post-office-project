@@ -9,7 +9,8 @@
         <img ng-src="{{template.src}}" style="margin:auto; height:500px; width: 1000px;">
 
       	<!-- Property Info -->
-        <span ng-style="template.address">{{property.address}} {{property.price}}</span>
+        <span ng-style="template.address">{{property.StreetNumber}} {{property.StreetName}} {{property.StreetSuffix}}<br>
+        	{{property.City}}, {{property.StateOrProvince}} {{property.PostalCode}}</span>
         <img ng-src="{{property.pic}}" ng-style="template.image" />
 
         <!-- Agent Info -->

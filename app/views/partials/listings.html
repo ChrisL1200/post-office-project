@@ -4,22 +4,22 @@
                 <ul class="nav nav-pills nav-stacked">
                     <li ng-class="listingsView === 'my' ? 'active' : ''">
                         <a ng-click="listingsView = 'my'">
-                        <span class="badge pull-right">42</span>
+                        <span class="badge pull-right" ng-if="model.totalListings">{{model.totalListings | digitLimit}}</span>
                         My Listings
                         </a>
                     </li>
                     <li ng-class="listingsView === 'recent' ? 'active' : ''">
                         <a ng-click="listingsView = 'recent'">
-                        <span class="badge pull-right">12</span>
+                        <!--<span class="badge pull-right">12</span> -->
                         Recently Sold
                         </a>
                     </li>
                 </ul>
             </div>
 
-            <div class="col-md-10">
-                <div class="row well" style="margin: 0">
-                    <div class="col-sm-6" ng-repeat="listing in listings"> 
+            <div class="col-md-10 well" ng-if="model.listings.length > 0">
+                <div class="row" style="margin: 0">
+                    <div class="col-sm-6" ng-repeat="listing in model.listings"> 
                         <!-- Begin Listing: 609 W GRAVERS LN-->
                         <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
                             <div class="media">
@@ -32,7 +32,7 @@
                                     <a href="#" target="_parent"></a>
 
                                     <h4 class="media-heading">
-                                      <a href="#" target="_parent">${{listing.StandardFields.ListPrice}}</a>
+                                      <a href="#" target="_parent">${{listing.StandardFields.ListPrice | number}}</a>
 
                                     <small class="pull-right">{{listing.StandardFields.StreetNumber}} {{listing.StandardFields.StreetName}} {{listing.StandardFields.StreetSuffix}}
                                     </small>
@@ -52,14 +52,15 @@
 
                                         <li>{{listing.StandardFields.BathsTotal}} Baths</li>
                                     </ul>
-                                    <p class="hidden-xs">{{listing.StandardFields.PublicRemarks}}</p><span class="fnt-smaller fnt-lighter fnt-arial">Courtesy of {{currentUser.name.first}} {{currentUser.name.last}}</span>
+                                    <p class="hidden-xs listing-summary">{{listing.StandardFields.PublicRemarks}}</p><span class="fnt-smaller fnt-lighter fnt-arial">Courtesy of {{currentUser.name.first}} {{currentUser.name.last}}</span>
 
-                                    <button class="pull-right btn btn-defaul" ng-click="setLocation('/advertise/' + listing.id)">Advertise</button>
+                                    <button class="pull-right btn btn-defaul" ng-click="setLocation('/advertise/' + listing.Id)">Advertise</button>
                                 </div>
                             </div>
                         </div><!-- End Listing-->
                     </div><!-- End Col -->
                 </div><!-- End row -->
+                    <pagination boundary-links="true" total-items="model.totalListings" ng-model="model.request._page" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" max-size="10" on-select-page="pageChanged(page)"></pagination>
             </div>
         </div><!-- End container -->
     </div>

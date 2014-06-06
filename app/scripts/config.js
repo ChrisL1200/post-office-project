@@ -2,6 +2,7 @@
 
 angular.module('postOfficeProjectApp')
   .constant('Config', {
+  	searchFields: ["City","StateOrProvince"],
   	templates: [{
   		src: "images/red.jpg",
   		address: {

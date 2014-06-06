@@ -1,14 +1,11 @@
 'use strict';
 
 angular.module('postOfficeProjectApp')
-  .controller('ListingsCtrl', function ($scope, Spark) {
-  	$scope.request = {
-  		_select: "Photos(1)"
-  	};
+  .controller('ListingsCtrl', function ($scope, Spark, Listings) {
+  	$scope.model = Listings;
+  	$scope.$watch('model.request._page', function(newPage){
+    	Listings.loadListings();
+    });
 
-  	Spark.get($scope.request, function(response){
-  		$scope.listings = response.D.Results;
-  	});
-
-  	$scope.listingsView = "my";
+  	$scope.listingsView = "my";	
   });
