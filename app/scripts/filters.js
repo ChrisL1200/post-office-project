@@ -4,7 +4,7 @@ angular.module('postOfficeProjectApp')
   .filter('digitLimit', function () {
     return function(input, scope) {
     	var suffix = "";
-    	var result;
+    	var result = input;
     	if (input!=null) {
 	        if((input / 1000000) >= 1) {
 	        	result = input / 1000000;

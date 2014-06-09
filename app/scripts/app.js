@@ -14,10 +14,6 @@ angular.module('postOfficeProjectApp', [
         templateUrl: 'partials/home',
         controller: 'HomeCtrl'
       })
-      .when('/login', {
-        templateUrl: 'partials/login',
-        controller: 'LoginCtrl'
-      })
       .when('/signup', {
         templateUrl: 'partials/signup',
         controller: 'SignupCtrl'

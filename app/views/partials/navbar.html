@@ -27,7 +27,63 @@
                                     </form>
                                 </div>
                                 <ul class="nav navbar-nav navbar-right">
-    								<li ng-hide="currentUser" ng-class="{active: isActive('/login')}"><a href="/login">Login</a></li>
+                                    <li class="dropdown" ng-show="!currentUser"><a class="dropdown-toggle" data-toggle="dropdown">Login
+                                        <b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <form class="form" name="form" ng-submit="login(form)" novalidate>
+
+                                                  <!-- <div class="form-group">
+                                                    <label>Email</label>
+
+                                                    <input type="text" name="email" class="form-control" ng-model="user.email" required>
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>Password</label>
+                                                    
+                                                    <input type="password" name="password" class="form-control" ng-model="user.password" required>
+                                                  </div>
+
+                                                  <div class="form-group has-error">
+                                                    <p class="help-block" ng-show="form.email.$error.required && form.password.$error.required && submitted">
+                                                       Please enter your email and password.
+                                                    </p>              
+                                                    <p class="help-block">{{ errors.other }}</p>
+                                                  </div>
+
+                                                  <button type="submit" class="btn btn-lg btn-primary"> Sign in </button>
+                                                </form> -->
+                                                <div class="navbar-content">
+                                                    <div class="form-group">
+                                                    <label>Email</label>
+
+                                                    <input type="text" name="email" class="form-control" ng-model="user.email" required>
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>Password</label>
+                                                    
+                                                    <input type="password" name="password" class="form-control" ng-model="user.password" required>
+                                                  </div>
+
+                                                  <div class="form-group has-error">
+                                                    <p class="help-block" ng-show="form.email.$error.required && form.password.$error.required && submitted">
+                                                       Please enter your email and password.
+                                                    </p>              
+                                                    <p class="help-block">{{ errors.other }}</p>
+                                                  </div>
+                                                </div>
+                                                <div class="navbar-footer">
+                                                    <div class="navbar-footer-content">
+                                                        <button type="submit" class="btn btn-default btn-sm pull-right"> Sign in </button>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </div>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </li>
     								<li ng-hide="currentUser" ng-class="{active: isActive('/signup')}"><a href="/signup">Sign up</a></li>
                                     <li class="dropdown" ng-show="currentUser"><a class="dropdown-toggle" data-toggle="dropdown">Welcome, {{currentUser.name.first}}
                                         <b class="caret"></b></a>
