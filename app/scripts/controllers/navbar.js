@@ -11,12 +11,13 @@ angular.module('postOfficeProjectApp')
     };
 
     $scope.searchListings = function(search) {
+        var upperCase = search.toUpperCase();
     	Listings.request._filter = "";
     	angular.forEach(Config.searchFields, function(field, index){
     		if(index < Config.searchFields.length - 1)
-    			Listings.request._filter += field + " Eq '" + search + "' OR ";
+    			Listings.request._filter += field + " Eq '" + upperCase + "' OR ";
     		else
-    			Listings.request._filter += field + " Eq '" + search + "'";
+    			Listings.request._filter += field + " Eq '" + upperCase + "'";
     	});
     	Listings.loadListings();
     };

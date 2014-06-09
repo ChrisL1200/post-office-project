@@ -7,7 +7,7 @@ angular.module('postOfficeProjectApp')
    listings.request = {
   		_pagination: 1,
   		_page: 1,
-  		_select: "PrimaryPhoto",
+  		_expand: "PrimaryPhoto",
   		_filter: ""
   	};
 
