@@ -24,7 +24,7 @@
                         <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
                             <div class="media">
                                 <a class="pull-left" href="#" target="_parent">
-                                <img alt="image" class="img-responsive" ng-src="{{listing.StandardFields.Photos[0].Uri300}}"></a>
+                                <img alt="image" class="img-responsive listing-photo" ng-src="{{listing.StandardFields.Photos[0].Uri300}}"></a>
 
                                 <div class="clearfix visible-sm"></div>
 
@@ -40,8 +40,11 @@
                                     <small class="pull-right">
                                     {{listing.StandardFields.City}}, {{listing.StandardFields.StateOrProvince}} {{listing.StandardFields.PostalCode}}</small>
                                   </h4>
+                                  <div class="row">
 
-                                    <ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
+                                  </div>
+
+                                    <!-- <ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
                                         <li>{{listing.StandardFields.BuildingAreaTotal}} SqFt</li>
 
                                         <li style="list-style: none">|</li>
@@ -51,16 +54,19 @@
                                         <li style="list-style: none">|</li>
 
                                         <li>{{listing.StandardFields.BathsTotal}} Baths</li>
-                                    </ul>
-                                    <p class="hidden-xs listing-summary">{{listing.StandardFields.PublicRemarks}}</p><span class="fnt-smaller fnt-lighter fnt-arial">Courtesy of {{currentUser.name.first}} {{currentUser.name.last}}</span>
+                                    </ul> 
+                                    <!-- <p class="hidden-xs listing-summary">{{listing.StandardFields.PublicRemarks}}</p> -->
+                                    <!-- <span class="fnt-smaller fnt-lighter fnt-arial">Courtesy of {{currentUser.name.first}} {{currentUser.name.last}}</span> -->
 
-                                    <button class="pull-right btn btn-defaul" ng-click="setLocation('/advertise/' + listing.Id)">Advertise</button>
+                                    <button class="pull-right btn btn-primary advertise-listing" ng-click="setLocation('/advertise/' + listing.Id)">Advertise</button>
                                 </div>
                             </div>
                         </div><!-- End Listing-->
                     </div><!-- End Col -->
                 </div><!-- End row -->
+                <div class="text-center">
                     <pagination boundary-links="true" total-items="model.totalListings" ng-model="model.request._page" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" max-size="10" on-select-page="pageChanged(page)"></pagination>
+                </div>
             </div>
         </div><!-- End container -->
     </div>
