@@ -12,11 +12,11 @@
                                 <a class="navbar-brand" href="/">Project name</a>
                             </div>
                             <div class="navbar-collapse collapse">
-                                <ul class="nav navbar-nav">
+                                <ul class="nav navbar-nav" ng-show="currentUser">
                                     <li ng-class="isActive('/listings') ? 'active' : ''"><a ng-click="setLocation('/listings')">Listings</a></li>
                                     <li ng-class="isActive('/farm') ? 'active' : ''"><a ng-click="setLocation('/farm')">Farm</a></li>
                                 </ul>
-                                <div class="col-sm-5 col-md-5">
+                                <div class="col-sm-5 col-md-5" ng-show="currentUser">
                                     <form class="navbar-form" role="search" ng-submit="searchListings(data.search)">
                                     <div class="input-group">
                                         <input type="text" class="form-control" placeholder="Search Listings..." name="q" ng-model="data.search">
