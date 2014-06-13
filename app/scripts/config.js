@@ -6,6 +6,9 @@ angular.module('postOfficeProjectApp')
       loginURL: "https://sparkplatform.com/openid?openid.mode=checkid_setup&openid.return_to=https://post-office-project.herokuapp.com&openid.spark.client_id=2784vbb6k8i7ejdy0vkd0r8ll&openid.spark.combined_flow=true"
     },
   	searchFields: ["City","StateOrProvince"],
+    styles: {
+      colors: ["black","green", "red","white"]
+    },
   	templates: [{
   		src: "images/red.jpg",
   		address: {
