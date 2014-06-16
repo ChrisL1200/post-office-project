@@ -8,6 +8,7 @@ angular.module('postOfficeProjectApp')
   		_pagination: 1,
   		_page: 1,
   		_expand: "PrimaryPhoto",
+      HotSheet: "sold",
   		_filter: ""
   	};
 
