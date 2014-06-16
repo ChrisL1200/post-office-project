@@ -1,1 +1,5 @@
-Home Page
+Showing Card: {{showingCard}}
+<div ng-repeat="(key,val) in bustObject">
+	<span ng-if="!(key < 17)">{{key}} : {{val}}</span>
+</div>
+<div>{{bustObject["17"] + bustObject["18"] + bustObject["19"] + bustObject["20"] + bustObject["21"] + bustObject["Bust"]}}
