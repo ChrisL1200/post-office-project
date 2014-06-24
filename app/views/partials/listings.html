@@ -5,6 +5,7 @@
                     <li ng-class="listingsView === 'my' ? 'active' : ''">
                         <a ng-click="listingsView = 'my'">
                         <span class="badge pull-right" ng-if="model.totalListings">{{model.totalListings | digitLimit}}</span>
+                        <span class="badge pull-right" ng-if="model.totalListings === 0">0</span>
                         My Listings
                         </a>
                     </li>

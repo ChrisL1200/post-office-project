@@ -3,67 +3,61 @@
 angular.module('postOfficeProjectApp')
   .constant('Config', {
     spark: {
-      loginURL: "https://sparkplatform.com/openid?openid.mode=checkid_setup&openid.return_to=https://post-office-project.herokuapp.com&openid.spark.client_id=2784vbb6k8i7ejdy0vkd0r8ll&openid.spark.combined_flow=true"
+      loginURL: "https://sparkplatform.com/openid?openid.mode=checkid_setup&openid.return_to=https://post-office-project.herokuapp.com&openid.spark.client_id=r4pjgm1lhd7e7d2cbbplzz16&openid.spark.combined_flow=true"
     },
   	searchFields: ["City","StateOrProvince"],
     styles: {
-      colors: ["black","green", "red","white"]
+      colors: ["black","green", "red","white"],
+      layouts: [{
+        label: "Basic",
+        active: true,
+        address: {
+          xPos: 0,
+          yPos: 300
+        },
+        agentPhoto: {
+          xPos: 450,
+          yPos: 300
+        },
+        agentName: {
+          xPos: 450,
+          yPos: 270
+        },
+        propertyPhoto: {
+          xPos: 10,
+          yPos: 10
+        },
+        summary: {
+          xPos: 350,
+          yPos: 50
+        }
+      }]
     },
   	templates: [{
-  		src: "images/red.jpg",
-  		address: {
-  			position: "absolute",
-  			top: "280px",
-  			left: "10px",
-  			color: "black"
-  		},
-  		image: {
-  			position: "absolute",
-  			top: "300px",
-  			left: "10px",
-  			width: "300px",
-  			height: "200px"	
-  		},
-  		agentPic: {
-  			position: "absolute",
-  			top: "0px",
-  			left: "560px",
-  			width: "150px",
-  			height: "200px"		
-  		},
-  		agentName: {
-  			position: "absolute",
-  			top: "210px",
-  			left: "600px",
-  			color: "black"	
-  		}
+  		src: "images/blue_bricks.gif",
+      fields: {
+        agentName: {
+          label: "Agent Name"
+        },
+        address: {
+          label: "Property Address"
+        },
+        summary: {
+          label: "Property Address"
+        }
+      }
   	},{
-  		src: "images/orange.jpeg",
-  		address: {
-  			position: "absolute",
-  			top: "280px",
-  			left: "10px",
-  			color: "black"
-  		},
-  		image: {
-  			position: "absolute",
-  			top: "300px",
-  			left: "10px",
-  			width: "300px",
-  			height: "200px"	
-  		},
-  		agentPic: {
-  			position: "absolute",
-  			top: "0px",
-  			left: "560px",
-  			width: "150px",
-  			height: "200px"		
-  		},
-  		agentName: {
-  			position: "absolute",
-  			top: "210px",
-  			left: "600px",
-  			color: "black"	
-  		}
+  		src: "images/gold_bricks.gif",
+      fields: {
+        agentName: {
+          label: "Agent Name"
+        },
+        address: {
+          label: "Property Address"
+        },
+        summary: {
+          label: "Property Address"
+        }
+      }
   	}]
   });

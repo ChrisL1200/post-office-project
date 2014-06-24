@@ -6,7 +6,8 @@ angular.module('postOfficeProjectApp', [
   'ngSanitize',
   'ngRoute',
   'angularFileUpload',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'angular-redactor'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider

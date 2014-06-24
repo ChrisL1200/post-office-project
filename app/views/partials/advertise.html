@@ -1,20 +1,44 @@
   <div class="row">
     <div class="col-md-4">
       <accordion close-others="oneAtATime">
-        <accordion-group is-open="status.agentPhoto">
-          <accordion-heading>
-            Address <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.agentPhoto, 'glyphicon-chevron-right': !status.agentPhoto}"></i>
+        <accordion-group is-open="status.layout">
+          <accordion-heading>  
+            Layout <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.layout, 'glyphicon-chevron-right': !status.layout}"></i>
           </accordion-heading>
-          <div>
-            <label for="profile-company-name">Color: </label>
-            <span id="profile-company-name">
-              <select ng-model="getActiveTemplate().address.color" ng-options="color for color in config.styles.colors"></select>
+          <span ng-repeat="layout in config.styles.layouts" class="template-layouts">
+            <span class="glyphicon glyphicon-file"></span>{{layout.label}}
+          </span>
+        </accordion-group>
+        <accordion-group is-open="status[key]" ng-repeat="(key,value) in getActiveTemplate().fields">
+          <accordion-heading>
+            {{value.label}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status[key], 'glyphicon-chevron-right': !status[key]}"></i>
+          </accordion-heading>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label>Font Size: </label>
+                <span>
+                 <select ng-model="value.fontSize" ng-options="color for color in config.styles.colors"></select>
+                </span>
+              </div>
+
+            <div class="form-group col-md-6">
+              <label>Font Color: </label>
+            <span>
+              <select ng-model="value.fontColor" ng-options="color for color in config.styles.colors"></select>
+            </span>
+            </div>   
+          </div>
+          <div class="form-group">
+              <label>Name</label>
+
+            <span>
+              <input type="text" name="name" class="form-control" ng-model="value.value"/>
             </span>
           </div>
         </accordion-group>
-        <accordion-group is-open="status.agentName">
+        <!-- <accordion-group is-open="status.agentPicture">
           <accordion-heading>
-            Agent Name <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.agentName, 'glyphicon-chevron-right': !status.agentName}"></i>
+            Agent Picture <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.agentPicture, 'glyphicon-chevron-right': !status.agentPicture}"></i>
           </accordion-heading>
           <div>
             <label for="profile-company-name">Color: </label>
@@ -23,24 +47,70 @@
             </span>
           </div>
         </accordion-group>
+        <accordion-group is-open="status.layout">
+          <accordion-heading>
+            Layout <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.layout, 'glyphicon-chevron-right': !status.agentPhoto}"></i>
+          </accordion-heading>
+          <div>
+            <label for="profile-company-name">Color: </label>
+            <span id="profile-company-name">
+              <select ng-model="getActiveTemplate().address.color" ng-options="color for color in config.styles.colors"></select>
+            </span>
+          </div>
+        </accordion-group>
+        <accordion-group is-open="status.message">
+          <accordion-heading>
+            Message <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.message, 'glyphicon-chevron-right': !status.message}"></i>
+          </accordion-heading>
+          <div>
+            <label for="profile-company-name">Color: </label>
+            <span id="profile-company-name">
+              <select ng-model="getActiveTemplate().address.color" ng-options="color for color in config.styles.colors"></select>
+            </span>
+          </div>
+        </accordion-group>
+        <accordion-group is-open="status.propertyAddress">
+          <accordion-heading>
+            Property Address <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.propertyAddress, 'glyphicon-chevron-right': !status.propertyAddress}"></i>
+          </accordion-heading>
+          <div>
+            <label for="profile-company-name">Color: </label>
+            <span id="profile-company-name">
+              <select ng-model="getActiveTemplate().address.color" ng-options="color for color in config.styles.colors"></select>
+            </span>
+          </div>
+        </accordion-group>
+        <accordion-group is-open="status.propertyPicture">
+          <accordion-heading>
+            Property Picture <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.propertyPicture, 'glyphicon-chevron-right': !status.propertyPicture}"></i>
+          </accordion-heading>
+          <div>
+            <label for="profile-company-name">Color: </label>
+            <span id="profile-company-name">
+              <select ng-model="getActiveTemplate().agentName.color" ng-options="color for color in config.styles.colors"></select>
+            </span>
+          </div>
+        </accordion-group> -->
       </accordion>
         <div class="pull-left"><button type="button" class="btn btn-default btn-lg">Cancel</button></div>
-        <div class="pull-right"><button type="button" class="btn btn-success btn-lg">Save</button></div>
+        <div class="pull-right"><button type="button" class="btn btn-success btn-lg" ng-click="saveTemplate()">Save</button></div>
     </div>
   	<div class="col-md-8">
-    <carousel>
-      <slide ng-repeat="template in templates" active="template.active">
+    <carousel ng-if="property.Photos[0].Uri300">
+      <slide ng-repeat="template in templates" active="template.active"> 
+        <canvas id="templateCanvas-{{$index}}" height=400 width=578 advertise-template template="template" 
+        agent-photo="'/api/avatar/'+currentUser.avatarId" property-photo="property.Photos[0].Uri300" layout="getActiveLayout()"></canvas>
       	<!-- Template -->
-        <img ng-src="{{template.src}}" style="margin:auto; height:500px; width: 1000px;">
+        <!-- <img ng-src="{{template.src}}" style="margin:auto; height:500px; width: 1000px;"> -->
 
       	<!-- Property Info -->
-        <span ng-style="template.address">{{property.StreetNumber}} {{property.StreetName}} {{property.StreetSuffix}}<br>
+       <!--  <span ng-style="template.address">{{property.StreetNumber}} {{property.StreetName}} {{property.StreetSuffix}}<br>
         	{{property.City}}, {{property.StateOrProvince}} {{property.PostalCode}}</span>
-        <img ng-src="{{property.pic}}" ng-style="template.image" />
+        <img ng-src="{{property.pic}}" ng-style="template.image" /> -->
 
         <!-- Agent Info -->
-        <span ng-style="template.agentName">{{currentUser.name.first}} {{currentUser.name.last}}</span>
-        <img ng-src="/api/avatar/{{currentUser.avatarId}}" ng-style="template.agentPic" />
+        <!-- <span ng-style="template.agentName">{{currentUser.name.first}} {{currentUser.name.last}}</span>
+        <img ng-src="/api/avatar/{{currentUser.avatarId}}" ng-style="template.agentPic" /> -->
       </slide>	
     </carousel>
 	</div>
